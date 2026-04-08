@@ -336,7 +336,7 @@
   "description": "HeartAngel empowers bystanders to save lives by offering real-time CPR feedback and connecting them to nearby emergency support during critical moments.",
   "thumbnail": "sites/CA-49/thumbnail.png",
   "location": {
-    "lat": 33.501869,,
+    "lat": 33.501869,
     "lng": -117.662819,
     "label": "San Juan Capistrano, California"
   },
