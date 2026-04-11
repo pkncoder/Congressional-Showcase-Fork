@@ -4,49 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TODO: Change the title to your app name and your name -->
   <title>Remember When | Edward Burton, Tilghman Reiss, & Bentley Burton</title>
 
-  <!-- Shared styles — gives you navigation arrows and CAC CSS variables -->
   <link rel="stylesheet" href="../../assets/css/shared.css">
 
   <style>
-  
-    /*
- * TODO: Add your custom styles here. Go wild — this is YOUR page!
- *
- * You can use Congressional App Challenge colors with CSS variables:
- *   var(--cac-navy)  → #000f63
- *   var(--cac-red)   → #a53535
- *   var(--cac-blue)  → #4560b3
- *   var(--cac-white) → #ffffff
- *
- * Or use completely your own palette. It's up to you!
- */
-
-:root {
-  /* === Base === */
-  --bg-primary:    #0a0e1a;   /* near-black with a blue tint */
-  --bg-secondary:  #111827;   /* dark slate for cards/sections */
-  --bg-surface:    #1c2437;   /* slightly lifted surface */
-
-  /* === Brand Accents === */
-  --accent-gold:   #f0b429;   /* warm gold — pops against navy */
-  --accent-sky:    #38bdf8;   /* bright sky blue for links/highlights */
-  --accent-coral:  #f87171;   /* softer red than CAC red, great for tags */
-
-  /* === Text === */
-  --text-primary:  #f1f5f9;   /* off-white, easier on the eyes than pure white */
-  --text-muted:    #94a3b8;   /* slate gray for captions/subtitles */
-  --text-faint:    #475569;   /* very muted, for borders or placeholders */
-
-  /* === Utility === */
-  --border:        #1e2d45;   /* subtle dark border */
-  --shadow:        0 4px 24px rgba(0, 15, 99, 0.4); /* navy-tinted shadow */
-}
-
-
-Copied from: Editing Congressional-Showcase/sites/NC-07/index.html at main · eddie-burt/Congressional-Showcase - <https://github.com/eddie-burt/Congressional-Showcase/edit/main/sites/NC-07/index.html>
+    :root {
+      --bg-primary:    #0a0e1a;
+      --bg-secondary:  #111827;
+      --bg-surface:    #1c2437;
+      --accent-gold:   #f0b429;
+      --accent-sky:    #38bdf8;
+      --accent-coral:  #f87171;
+      --text-primary:  #f1f5f9;
+      --text-muted:    #94a3b8;
+      --text-faint:    #475569;
+      --border:        #1e2d45;
+      --shadow:        0 4px 24px rgba(0, 15, 99, 0.4);
+    }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -63,8 +38,43 @@ Copied from: Editing Congressional-Showcase/sites/NC-07/index.html at main · ed
       padding: 4rem 2rem 3rem;
     }
 
-    header { text-align: center; margin-bottom: 3rem; }
-    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    /* ── Person header: photo + text side by side ── */
+    .person header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: left;
+      margin-bottom: 3rem;
+    }
+
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--cac-blue, #4560b3);
+      background: #e2e8f0;
+    }
+
+    .profile-pic-placeholder {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 3px dashed #cbd5e1;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #94a3b8;
+      text-align: center;
+      line-height: 1.4;
+      padding: 0.5rem;
+    }
+
+    .person header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
 
     section {
       background: white;
@@ -76,6 +86,43 @@ Copied from: Editing Congressional-Showcase/sites/NC-07/index.html at main · ed
 
     h2 { font-size: 1.4rem; margin-bottom: 1rem; }
     p { line-height: 1.7; margin-bottom: 1rem; }
+
+    /* ── App screenshots grid ── */
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .screenshot img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid #e2e8f0;
+    }
+
+    .screenshot-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 8px;
+      border: 2px dashed #cbd5e1;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .screenshot figcaption {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 0.4rem;
+      text-align: center;
+    }
 
     .video iframe {
       width: 100%;
@@ -95,70 +142,101 @@ Copied from: Editing Congressional-Showcase/sites/NC-07/index.html at main · ed
   </style>
 </head>
 <body>
-  <!-- Back button — links to the main showcase -->
   <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
 
   <div class="container">
+
+    <!-- ══════════════ EDWARD ══════════════ -->
     <div class="person">
-    <header>
-      <!-- TODO: Replace with your name -->
-      <h1>Edward Burton</h1>
-      <!-- TODO: Write a short tagline about yourself -->
-      <p>16 Yr old who loves anything relating to robotics, coding, and surfing!
-</p>
-    </header>
+      <header>
+        <!--
+          TODO: Swap this div for a real photo:
+          <img src="assets/edward.jpg" alt="Edward Burton" class="profile-pic">
+        -->
+        <img src="assets/edward.jpeg" alt="Edward Burton" class="profile-pic">
+        <div>
+          <h1>Edward Burton</h1>
+          <p>16 Yr old who loves anything relating to robotics, coding, and surfing!</p>
+        </div>
+      </header>
+      <section>
+        <h2>About Me</h2>
+        <p>I'm a sophomore at E. A. Laney High School who loves building things. I got into programming mostly through YouTube and from friends, just teaching myself as I went. I'm also the CAD Lead on my FRC robotics team, where I get to design and 3D model robot parts. When I am not coding or CAD'ing, you can find me outside either riding bikes, surfing, or playing with my brother!</p>
+      </section>
+    </div>
 
-    <section>
-      <!-- TODO: Tell us about yourself -->
-      <h2>About Me</h2>
-      <p>I'm a sophomore at E. A. Laney High School who loves building things. I got into programming mostly through YouTube and from friends, just teaching myself as I went. I'm also the CAD Lead on my FRC robotics team, where I get to design and 3D model robot parts. When I am not coding or CAD'ing, you can find me outside either riding bikes, suring, or playing with my brother!p>
-    </section>
-      </div>
-      <div class="person">
-    <header>
-      <!-- TODO: Replace with your name -->
-      <h1>Bentley Burton</h1>
-      <!-- TODO: Write a short tagline about yourself -->
-      <p>15-year-old soccer player, math enthusiast, and problem solver.
-</p>
-    </header>
-
-    <section>
-      <!-- TODO: Tell us about yourself -->
-      <h2>About Me</h2>
-      <p>I'm a fresman at E.A. Laney High School who loves competing — whether that's on the soccer field with my club team or in the classroom on the math team. I'm always up for a challenge, and I like finding the strategy behind things, whether it's a play on the pitch or a tough problem on paper. I'm also the younger brother of the robotics guy.p>
-    </section>
-      </div>
+    <!-- ══════════════ BENTLEY ══════════════ -->
     <div class="person">
-    <header>
-      <!-- TODO: Replace with your name -->
-      <h1>Tilghman Reiss</h1>
-      <!-- TODO: Write a short tagline about yourself -->
-      <p>16 year old sophomore at New Hanover High School who enjoys soccer, tennis, and coding.</p>
-    </header>
+      <header>
+        <!--
+          TODO: Swap this div for a real photo:
+          <img src="assets/bentley.jpg" alt="Bentley Burton" class="profile-pic">
+        -->
+        <img src="assets/Bentley.png" alt="Bentley Burton" class="profile-pic" style="object-position: center 35%;">
+        <div>
+          <h1>Bentley Burton</h1>
+          <p>15-year-old soccer player, math enthusiast, and problem solver.</p>
+        </div>
+      </header>
+      <section>
+        <h2>About Me</h2>
+        <p>I'm a freshman at E.A. Laney High School who loves competing — whether that's on the soccer field with my club team or in the classroom on the math team. I'm always up for a challenge, and I like finding the strategy behind things, whether it's a play on the pitch or a tough problem on paper. I'm also the younger brother of the robotics guy.</p>
+      </section>
+    </div>
 
+    <!-- ══════════════ TILGHMAN ══════════════ -->
+    <div class="person">
+      <header>
+        <!--
+          TODO: Swap this div for a real photo:
+          <img src="assets/tilghman.jpg" alt="Tilghman Reiss" class="profile-pic">
+        -->
+        <div class="profile-pic-placeholder">📷<br>Tilghman's<br>Photo</div>
+        <div>
+          <h1>Tilghman Reiss</h1>
+          <p>16 year old sophomore at New Hanover High School who enjoys soccer, tennis, and coding.</p>
+        </div>
+      </header>
+      <section>
+        <h2>About Me</h2>
+        <p>I started programming self-taught, trying to figure out how to make small projects, however my experience on my FRC robotics team has taught me many new skills. I look forward to creating more projects like these in the future and to improve my coding skills even more!</p>
+      </section>
+    </div>
+
+    <!-- ══════════════ APP DESCRIPTION ══════════════ -->
     <section>
-      <!-- TODO: Tell us about yourself -->
-      <h2>About Me</h2>
-      <p>. I started programming self-taught, trying to figure out how to make small projects, however my experience on my FRC robotics team has taught me many new skills. I look forward to creating more projects like these in the future and to improve my coding skills even more!</p>
-    </section>
-      </div>
-    <section>
-      <!-- TODO: Tell us about your app -->
       <h2>Remember When</h2>
-      <p>Remember When addresses an evergrowing problem with our aging community by providing companionship and comfort to the elderly. Our app starts a conversation with the User, and continuously prompts him or her to keep talking, guiding the User in the right direction, and documenting everything. Remember When is great for people who are lonely or who are suffering from memory loss by providing a source of stimulation and interaction. To use the app, the User simply presses the button in the center of the homepage and begins talking. The app listens for the User to finish talking, saves the recorded audio and text files, records new details about people the User has identified, and verbally prompts the User to keep the conversation going. All the information Remember When records can be accessed in several tabs: "The Record" tab keeps a library of all recorded audio files, preserving the User's voice and allowing it to be heard forever; "The Journal" tab keeps a written transcript of every story told by the User, creating a book of memories; and the "Family Tree" tab keeps detailed bios of every person the User mentioned as part of his or her life.
+      <p>Remember When addresses an ever-growing problem with our aging community by providing companionship and comfort to the elderly. Our app starts a conversation with the user, and continuously prompts him or her to keep talking, guiding the user in the right direction, and documenting everything. Remember When is great for people who are lonely or who are suffering from memory loss by providing a source of stimulation and interaction. To use the app, the user simply presses the button in the center of the homepage and begins talking. The app listens for the user to finish talking, saves the recorded audio and text files, records new details about people the user has identified, and verbally prompts the user to keep the conversation going. All the information Remember When records can be accessed in several tabs: "The Record" tab keeps a library of all recorded audio files, preserving the user's voice and allowing it to be heard forever; "The Journal" tab keeps a written transcript of every story told by the user, creating a book of memories; and the "Family Tree" tab keeps detailed bios of every person the user mentioned as part of his or her life.</p>
+      <p>Remember When is not only a great companion for the elderly, but it is also an amazing tool for their loved ones who want to have a record of their stories forever.</p>
+      <p>Our code integrates with OpenAI's API in order to create a human-like companion. Our code records the user's voice, stopping when it detects the user not talking. It takes that audio file and uses OpenAI's Whisper to transcribe the audio into text which our code appends to "The Journal" tab. The text file is also used alongside stored relevant information to use OpenAI's gpt-4o to generate a response. The response includes information about any people the user mentioned, which updates the "Family Tree" tab. The response is then fed through OpenAI's tts-1 model to create an audio file, which our code plays aloud to the user. When the user clicks on either the "Family Tree" or "The Journal" tabs, OpenAI's gpt-3.5-turbo combs through the text files, formatting and removing filler words and redundancies based on our coded instructions.</p>
 
-Remember when is not only a great companion for the elderly, but it is also an amazing tool for their loved ones who want to have a record of their stories forever.
-
-<p>
-      <p>Our code integrates with OpenAI’s API in order to create a human-like companion. Our code records the User’s voice, stopping when it detects the User not talking. It takes that audio file and uses OpenAI’s Whisper to transcribe the audio into text which our code appends to “The Journal” tab. The text file is also used alongside stored relevant information to use OpenAI’s gpt-4o to generate a response. The response includes information about any people the User mentioned, which updates the “Family Tree” tab. The response is then fed through OpenAI’s tts-1 model to create an audio file, which our code plays aloud to the User. When the User clicks on either the “Family Tree” or “The Journal” tabs, OpenAI’s gpt-3.5-turbo combs through the text files, formatting and removing filler words and redundancies based on our coded instructions.
-</p>
+      <!-- ── App Screenshots ── -->
+      <h2 style="margin-top: 1.5rem;">Screenshots</h2>
+      <div class="screenshots">
+        <!--
+          TODO: Replace each placeholder with a real screenshot, e.g.:
+          <figure class="screenshot">
+            <img src="assets/screenshot-home.png" alt="Home screen">
+            <figcaption>Home Screen</figcaption>
+          </figure>
+        -->
+        <figure class="screenshot">
+          <div class="screenshot-placeholder">📱 Add a screenshot<br>(e.g. assets/screenshot-home.png)</div>
+          <figcaption>Home Screen</figcaption>
+        </figure>
+        <figure class="screenshot">
+          <div class="screenshot-placeholder">📱 Add a screenshot<br>(e.g. assets/screenshot-journal.png)</div>
+          <figcaption>The Journal</figcaption>
+        </figure>
+        <figure class="screenshot">
+          <div class="screenshot-placeholder">📱 Add a screenshot<br>(e.g. assets/screenshot-tree.png)</div>
+          <figcaption>Family Tree</figcaption>
+        </figure>
+      </div>
     </section>
 
+    <!-- ══════════════ DEMO VIDEO ══════════════ -->
     <section class="video">
-      <!-- TODO: Replace YOUR_VIDEO_ID with your YouTube video ID.
-           For example, if your video URL is https://www.youtube.com/watch?v=abc123
-           then your video ID is "abc123" -->
       <h2>Demo</h2>
       <iframe
         src="https://www.youtube.com/embed/vpc_jrvL5fQ"
@@ -166,31 +244,23 @@ Remember when is not only a great companion for the elderly, but it is also an a
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
-
-      <!-- Alternative: Self-hosted video (NOT recommended — use YouTube/Vimeo instead
-           to avoid bloating the repository)
-      <video controls width="100%">
-        <source src="assets/demo.mp4" type="video/mp4">
-        Your browser does not support the video element.
-      </video>
-      -->
     </section>
 
+    <!-- ══════════════ LINKS ══════════════ -->
     <section>
-      <!-- TODO: Add any relevant links -->
       <h2>Links</h2>
       <p>
         <a href="https://github.com/yourusername/yourrepo">GitHub</a> &bull;
         <a href="https://yourapp.com">Live App</a>
       </p>
     </section>
+
   </div>
 
   <footer>
     <p>Congressional App Challenge &bull; <a href="../../">Back to Showcase</a></p>
   </footer>
 
-  <!-- Navigation script — enables arrow key navigation. Do NOT remove this. -->
   <script src="../../assets/js/nav.js" data-root="../../"></script>
 </body>
 </html>
