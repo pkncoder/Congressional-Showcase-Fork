@@ -658,5 +658,20 @@
   "district": "CA-07",
   "state": "CA",
   "tags": ["environment", "ai"]
+},
+{
+  "slug": "OH-09",
+  "name": "Alexander Preston",
+  "appName": "Kia Preston",
+  "description": "Demystifying the physics of light through real-time ray tracing and interactive GPU rendering on MacOS.",
+  "thumbnail": "sites/OH-09/thumbnail.png",
+  "location": {
+    "lat": 41.4425,
+    "lng": -82.7086,
+    "label": "Sandusky, OH"
+  },
+  "district": "OH-09",
+  "state": "OH",
+  "tags": ["ray-tracing", "education"]
 }
 ]
